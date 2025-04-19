@@ -13,3 +13,18 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json()); // MIDDLEWARE - It automatically parses incoming request bodies with JSON data and makes them available under req.body for further processing in route handlers.
+
+app.get("/", (req, res) => {
+  res.send(` 
+    <div style="font-family: Arial, sans-serif; background: #f0f4f8; padding: 50px; text-align: center;">
+      <h1 style="color: #2c3e50; font-size: 3rem;">✨ Welcome to <span style="color: #0d6efd;">ANVAYA</span> ✨</h1>
+      <p style="font-size: 1.2rem; color: #555;">Your powerful CRM solution to manage leads, clients, and sales – all in one place.</p>
+    </div>
+    `);
+});
+
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
+  console.log("Server is running on PORT", PORT);
+});
