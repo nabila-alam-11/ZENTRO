@@ -17,7 +17,7 @@ const commentSchema = new mongoose.Schema({
     required: [true, "Comment text is required"],
   },
   createdAt: {
-    type: date,
+    type: Date,
     default: Date.now,
   },
 });

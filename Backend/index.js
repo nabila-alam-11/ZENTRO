@@ -16,7 +16,7 @@ app.use(express.json()); // MIDDLEWARE - It automatically parses incoming reques
 
 const SalesAgent = require("./models/salesAgent.model");
 const Lead = require("./models/lead.model");
-const { default: mongoose } = require("mongoose");
+const Comment = require("./models/comment.model");
 
 // ===============================
 // ************ HOME ************
@@ -288,6 +288,74 @@ app.get("/agents", async (req, res) => {
 // ********* COMMENTS *********
 // ===============================
 
+async function addNewComment(newComment) {
+  try {
+    const savedComment = new Comment(newComment);
+    return savedComment;
+  } catch (error) {
+    throw error;
+  }
+}
+
+app.post("/leads/:id/comments", async (req, res) => {
+  try {
+    const leadId = req.params.id;
+    const { commentText, authorId } = req.body;
+
+    const lead = await Lead.findById(leadId);
+    if (!lead) {
+      return res
+        .status(404)
+        .json({ error: `Lead with ID '${leadId}' not found.` });
+    }
+
+    const author = await SalesAgent.findById(authorId);
+    if (!author) {
+      return res.status(404).json({ error: "Sales Agent not found." });
+    }
+
+    const newComment = new Comment({
+      lead: leadId,
+      author: authorId,
+      commentText,
+    });
+
+    await newComment.save();
+    res
+      .status(201)
+      .json({ message: "Comment added successfully.", Comment, newComment });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Failed to add Comment." });
+  }
+});
+
+// Get all comments
+async function getAllComments(leadId) {
+  try {
+    const comments = await Comment.find({ lead: leadId }).populate(
+      "author",
+      "name"
+    );
+    return comments;
+  } catch (error) {
+    throw error;
+  }
+}
+
+app.get("/leads/:id/comments", async (req, res) => {
+  try {
+    const comments = await getAllComments(req.params.id);
+    if (comments.length !== 0) {
+      res.json(comments);
+    } else {
+      res.status(404).json({ error: "Comments not found." });
+    }
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Failed to fetch comments." });
+  }
+});
 // ===============================
 // ************ SERVER ************
 // ===============================
