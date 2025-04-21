@@ -151,6 +151,63 @@ app.get("/leads", async (req, res) => {
   }
 });
 
+// Update a Lead
+async function updateLead(leadId, dataToUpdtaed) {
+  try {
+    const updatedLead = await Lead.findByIdAndUpdate(leadId, dataToUpdtaed, {
+      new: true,
+    });
+    return updatedLead;
+  } catch (error) {
+    throw error;
+  }
+}
+
+app.post("/leads/:leadId", async (req, res) => {
+  try {
+    const updatedLead = await updateLead(req.params.leadId, req.body);
+    if (updateLead) {
+      res
+        .status(200)
+        .json({ message: "Lead updated successfully.", updatedLead });
+    } else {
+      res
+        .status(404)
+        .json({ error: `Lead with ID ${req.params.leadId}  not found` });
+    }
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Failed to update lead." });
+  }
+});
+
+// Delete a Lead
+async function deleteLeadById(leadId) {
+  try {
+    const deletedLead = await Lead.findByIdAndDelete(leadId);
+    return deletedLead;
+  } catch (error) {
+    console.log("Error in deleting lead: ", error);
+  }
+}
+
+app.delete("/leads/:leadId", async (req, res) => {
+  try {
+    const deletedLead = await deleteLeadById(req.params.leadId);
+    if (deletedLead) {
+      res
+        .status(200)
+        .json({ message: "Lead deleted successfully.", deletedLead });
+    } else {
+      res
+        .status(500)
+        .json({ error: `Lead with ID ${req.params.leadId} not found.` });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete Lead." });
+  }
+});
+
 // ===============================
 // ********* SALES AGENT *********
 // ===============================
@@ -226,6 +283,10 @@ app.get("/agents", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch agents." });
   }
 });
+
+// ===============================
+// ********* COMMENTS *********
+// ===============================
 
 // ===============================
 // ************ SERVER ************
