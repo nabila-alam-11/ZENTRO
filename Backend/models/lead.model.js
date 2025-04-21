@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { type } = require("os");
 
 const leadSchema = new mongoose.Schema({
   name: {
@@ -26,7 +25,7 @@ const leadSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: ["New", "Contacted", "Qualified", "Propasal Sent", "Closed"],
+    enum: ["New", "Contacted", "Qualified", "Proposal Sent", "Closed"],
     default: "New",
   },
   tags: {

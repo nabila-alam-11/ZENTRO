@@ -1,4 +1,5 @@
 const express = require("express"); // This imports Express Framework.
+const mongoose = require("mongoose");
 const app = express(); // It creates an app object to build a web server, used to define routes, apply middleware, and handle HTTP requests.
 
 const { initializeDatabase } = require("./db/db.connect");
@@ -85,7 +86,7 @@ app.post("/leads", async (req, res) => {
       "New",
       "Contacted",
       "Qualified",
-      "Propasal Sent",
+      "Proposal Sent",
       "Closed",
     ];
 
@@ -356,6 +357,10 @@ app.get("/leads/:id/comments", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch comments." });
   }
 });
+// ===============================
+// ********* REPORTING *********
+// ===============================
+
 // ===============================
 // ************ SERVER ************
 // ===============================
