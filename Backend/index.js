@@ -128,6 +128,29 @@ app.post("/leads", async (req, res) => {
   }
 });
 
+// Get all Leads
+async function getAllLeads() {
+  try {
+    const leads = await Lead.find();
+    return leads;
+  } catch (error) {
+    throw error;
+  }
+}
+
+app.get("/leads", async (req, res) => {
+  try {
+    const leads = await getAllLeads();
+    if (leads.length != 0) {
+      res.json(leads);
+    } else {
+      res.status(404).json({ error: "Leads not found." });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch leads." });
+  }
+});
+
 // ===============================
 // ********* SALES AGENT *********
 // ===============================
