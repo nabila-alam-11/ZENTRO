@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  letter-spacing: 0.56px;
+}
+
+:root {
+  --clr-primary-1: #07348a;
+  --clr-primary-2: #06275c;
+  --clr-white: #fff;
+}
+.display-flex {
+  display: flex;
+}
+.text-align {
+  text-align: center;
+}
+
+/* Dashboard */
+
+.sidebar {
+  width: 15%;
+  background: var(--clr-primary-1);
+  color: var(--clr-white);
+  padding-block: 1rem;
+  height: 100dvh;
+  position: fixed;
+}
+.menu-icon {
+  display: none;
+}
+.navigation {
+  background-color: #fff;
+}
+.sidebar h3 {
+  font-size: 1.2rem;
+  padding-left: 4rem;
+  padding-bottom: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.sidebar h4 {
+  color: lightgray;
+  padding-left: 1.2rem;
+  padding-block: 1.3rem;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+}
+
+.sidebar ul > li {
+  list-style: none;
+  padding-left: 1rem;
+  font-size: 1rem;
+  padding-block: 0.56rem;
+  margin-block: 1rem;
+}
+.active {
+  background-color: var(--clr-primary-2);
+}
+.sidebar ul img {
+  margin-right: 1rem;
+  width: 1rem;
+}
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: lightgray;
+}
+.main {
+  margin-left: 15%;
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100vh;
+}
+.heading {
+  padding-block: 1.04rem;
+  background-color: var(--clr-white);
+  font-family: "Open Sans", sans-serif;
+  padding-left: 5rem !important;
+}
+
+.container h3 {
+  padding-block: 1.18rem;
+  background-color: var(--clr-white);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5rem;
+}
+.container {
+  margin-inline: 5rem;
+  margin-block: 4.6rem;
+  border-radius: 20px;
+}
+.container div {
+  width: 33.3333%;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  padding-inline: 1rem;
+  padding-bottom: 1rem;
+}
+
+.price {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 992px) {
+  .navigation {
+    background-color: var(--clr-white);
+    align-items: center;
+  }
+  .navigation button {
+    background-color: white;
+    outline: none;
+    border: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .navigation img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .sidebar {
+    display: none;
+    padding-left: 1rem;
+  }
+  .heading {
+    font-size: 1.5rem;
+    padding-left: 1rem !important;
+  }
+  .main {
+    margin-left: 0;
+  }
+  .container {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  .container div {
+    width: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 1rem;
+  }
+  .container div {
+    width: 100%;
+  }
+}
+/* Leads Status */
+.leads-status {
+  background-color: white;
+  margin-inline: 5rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+.lead-status {
+  justify-content: space-between;
+}
