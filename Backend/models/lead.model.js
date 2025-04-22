@@ -58,6 +58,7 @@ const leadSchema = new mongoose.Schema({
 // Middleware to update the `updatedAt` field on each save
 leadSchema.pre("save", function (next) {
   this.updatedAt = Date.now();
+
   next();
 });
 module.exports = mongoose.model("Lead", leadSchema);

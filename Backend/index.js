@@ -357,9 +357,40 @@ app.get("/leads/:id/comments", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch comments." });
   }
 });
+
 // ===============================
 // ********* REPORTING *********
 // ===============================
+
+app.get("/report/last-week", async (req, res) => {
+  try {
+    const now = new Date();
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(now.getDate() - 7);
+
+    const closedLeads = await Lead.find({
+      status: "Closed",
+      closedAt: { $gte: sevenDaysAgo },
+    });
+
+    res.status(200).json(closedLeads);
+  } catch (err) {
+    
+    console.error("Error fetching last-week closed leads:", err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/report/pipeline", async (req, res) => {
+  try {
+    const totalLeads = await Lead.countDocuments({ status: { $ne: "Closed" } });
+    res.status(200).json({ pipelineCount: totalLeads });
+  } catch (err) {
+    console.error("Error fetching total leads in pipeline:", err);
+
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 // ===============================
 // ************ SERVER ************
