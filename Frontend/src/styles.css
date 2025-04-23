@@ -21,6 +21,9 @@ body {
 .text-align {
   text-align: center;
 }
+a {
+  text-decoration: none;
+}
 
 /* Dashboard */
 
@@ -31,6 +34,32 @@ body {
   padding-block: 1rem;
   height: 100dvh;
   position: fixed;
+  height: 100dvh;
+}
+.sidebar ul li .active {
+  background-color: var(--clr-primary-2);
+  padding: 0.89rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.9s ease-in-out;
+}
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.89rem;
+  color: #aaa; /* muted text */
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--clr-primary-2);
+}
+.sidebar ul li a:not(.active):hover {
+  background-color: var(--clr-primary-2);
 }
 .menu-icon {
   display: none;
@@ -59,7 +88,6 @@ body {
 
 .sidebar ul > li {
   list-style: none;
-  padding-left: 1rem !important;
   font-size: 1rem;
   padding-block: 0.56rem;
   margin-block: 1rem;
@@ -114,6 +142,9 @@ body {
 }
 
 @media (max-width: 992px) {
+  .container {
+    margin-inline: 1.5rem;
+  }
   .navigation {
     background-color: var(--clr-white);
     align-items: center;
@@ -154,6 +185,7 @@ body {
 @media (max-width: 768px) {
   .container {
     gap: 1rem;
+    margin-inline: 1.5rem;
   }
   .container div {
     width: 100%;
@@ -199,10 +231,17 @@ body {
     width: calc(50% - 0.5rem);
   }
 }
+@media (max-width: 992px) {
+  .container-2 {
+    margin-inline: 1.5rem;
+  }
+}
 @media (max-width: 768px) {
   div.container-2 {
     margin-block: 2rem;
-    margin-inline: 5rem;
+  }
+  .container-2 {
+    margin-inline: 1.5rem;
   }
   .leads {
     gap: 1rem;
@@ -274,6 +313,9 @@ body {
   .action {
     width: calc(50% - 0.5rem);
   }
+  .container-3 {
+    margin-inline: 1.5rem;
+  }
 }
 
 @media (max-width: 778px) {
@@ -341,4 +383,28 @@ body {
 .filtered-priority button:hover,
 .priority-buttons button {
   cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .container-4 {
+    margin-inline: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .container-4 {
+    margin-inline: 1.5rem;
+  }
+  .priority h3 {
+    display: none;
+  }
+  .priority-buttons button {
+    font-size: 1rem;
+  }
+  .filtered-priority h3 {
+    font-size: 0.856rem;
+  }
+  .filtered-priority button {
+    font-size: 0.867rem;
+  }
 }
