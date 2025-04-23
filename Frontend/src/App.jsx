@@ -4,6 +4,7 @@ import Lead from "../src/assets/lead.png";
 import Report from "../src/assets/checklist-task-budget.png";
 import Deals from "../src/assets/trust-alt.png";
 import useFetch from "./useFetch";
+import { useState } from "react";
 
 const App = () => {
   const { data, loading, error } = useFetch(
@@ -12,9 +13,17 @@ const App = () => {
   );
 
   const leads = [...new Set(data?.map((lead) => lead.status))];
-  const highPriorityLeads = data?.filter((lead) => lead.priority === "High");
-  console.log(highPriorityLeads);
 
+  // Priority
+  const [selectedPriority, setSelectedPriority] = useState("High");
+  const filteredPriority = data?.filter(
+    (lead) => lead.priority === selectedPriority
+  );
+
+  const handlePriority = (priority) => {
+    setSelectedPriority(priority);
+    console.log(priority);
+  };
   return (
     <div className="display-flex">
       <Sidebar />
@@ -91,10 +100,70 @@ const App = () => {
           <h1>Quick Filters</h1>
           <div className="priority display-flex">
             <div className="priority-buttons">
-              <button>High</button>
-              <button>Medium</button> <button>Low</button>
+              <button
+                className="high"
+                onClick={() => handlePriority("High")}
+                type="button"
+                style={{
+                  backgroundColor:
+                    selectedPriority === "High"
+                      ? "rgb(224, 10, 10)"
+                      : "rgb(245, 242, 242)",
+                  color: selectedPriority === "High" ? "white" : "black",
+                }}
+              >
+                High
+              </button>
+              <button
+                className="medium"
+                onClick={() => handlePriority("Medium")}
+                style={{
+                  backgroundColor:
+                    selectedPriority === "Medium"
+                      ? "goldenrod"
+                      : "rgb(245, 242, 242)",
+                  color: selectedPriority === "Medium" ? "white" : "black",
+                }}
+              >
+                Medium
+              </button>
+              <button
+                onClick={() => handlePriority("Low")}
+                className="low"
+                style={{
+                  backgroundColor:
+                    selectedPriority === "Low"
+                      ? "#06275c"
+                      : "rgb(245, 242, 242)",
+                  color: selectedPriority === "Low" ? "white" : "black",
+                }}
+              >
+                Low
+              </button>
             </div>
             <h3>High Priority Leads</h3>
+          </div>
+          <div>
+            {filteredPriority?.map((lead) => (
+              <div className="display-flex filtered-priority" key={lead._id}>
+                <h3>
+                  {lead.name} ({lead.source})
+                </h3>
+                <button
+                  style={{
+                    backgroundColor:
+                      selectedPriority === "High"
+                        ? "rgb(224, 10, 10)"
+                        : selectedPriority === "Medium"
+                        ? "goldenrod"
+                        : "#06275c",
+                    color: "white",
+                  }}
+                >
+                  {lead.priority}
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>

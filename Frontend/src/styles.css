@@ -316,3 +316,29 @@ body {
   border-radius: 5px;
   letter-spacing: 1px;
 }
+
+.filtered-priority {
+  margin-block: 1.5rem;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding-inline: 0.56rem;
+  padding-block: 0.56rem;
+  display: flex;
+  align-items: center;
+}
+.filtered-priority button {
+  background-color: rgb(224, 10, 10);
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding-inline: 1rem;
+  padding-block: 0.456rem;
+  border-radius: 5px;
+  letter-spacing: 1.2px;
+}
+.filtered-priority button:hover,
+.priority-buttons button {
+  cursor: pointer;
+}
