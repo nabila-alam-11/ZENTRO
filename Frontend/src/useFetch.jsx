@@ -15,10 +15,10 @@ const useFetch = (url, initialData = null) => {
         setData(response.data);
         setError(null);
       } catch (error) {
-        if (axios.isCancel(err)) {
+        if (axios.isCancel(error)) {
           console.log("Request cancelled");
         } else {
-          setError(err.message);
+          setError(error.message);
         }
       } finally {
         setLoading(false);

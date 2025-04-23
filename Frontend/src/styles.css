@@ -53,10 +53,13 @@ body {
   font-size: 0.78rem;
   letter-spacing: 1.5px;
 }
+.sidebar ul {
+  padding-left: 0 !important;
+}
 
 .sidebar ul > li {
   list-style: none;
-  padding-left: 1rem;
+  padding-left: 1rem !important;
   font-size: 1rem;
   padding-block: 0.56rem;
   margin-block: 1rem;
@@ -77,7 +80,6 @@ body {
   margin-left: 15%;
   background-color: whitesmoke;
   width: 100%;
-  height: 100vh;
 }
 .heading {
   padding-block: 1.04rem;
@@ -94,7 +96,8 @@ body {
 }
 .container {
   margin-inline: 5rem;
-  margin-block: 4.6rem;
+  margin-top: 4.6rem;
+  margin-bottom: 3.5rem;
   border-radius: 20px;
 }
 .container div {
@@ -157,12 +160,59 @@ body {
   }
 }
 /* Leads Status */
-.leads-status {
-  background-color: white;
+.container-2 {
   margin-inline: 5rem;
-  padding-block: 1rem;
-  padding-inline: 1rem;
+  padding-block: 2.5rem;
+  padding-inline: 2rem;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  background-color: white;
+  margin-bottom: 3.5rem;
+}
+.container-2 h1 {
+  margin-bottom: 1rem;
+}
+.leads {
+  justify-content: space-between;
 }
 .lead-status {
-  justify-content: space-between;
+  border: 1px solid lightgray;
+  text-align: center;
+  width: 15rem;
+  padding-block: 1.5rem;
+  border-radius: 5px;
+}
+.lead-status h4 {
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
+}
+.lead-status p {
+  font-size: 1.3rem;
+}
+@media (max-width: 992px) {
+  .leads {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .lead-status {
+    width: calc(50% - 0.5rem);
+  }
+}
+@media (max-width: 768px) {
+  div.container-2 {
+    margin-block: 2rem;
+    margin-inline: 5rem;
+  }
+  .leads {
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  .lead-status {
+    width: 100%;
+  }
+}
+
+#loom-companion-mv3 {
+  display: none !important;
 }

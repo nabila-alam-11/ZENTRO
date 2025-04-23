@@ -1,7 +1,15 @@
 import Sidebar from "../components/sidebar";
 import MenuIcon from "../src/assets/menu.png";
+import useFetch from "./useFetch";
 
 const App = () => {
+  const { data, loading, error } = useFetch(
+    "https://anvaya-backend-theta.vercel.app/leads",
+    []
+  );
+
+  const leads = [...new Set(data?.map((lead) => lead.status))];
+
   return (
     <div className="display-flex">
       <Sidebar />
@@ -32,26 +40,21 @@ const App = () => {
           </div>
         </div>
         {/* Container 2  */}
-        <div className="leads-status">
+        <div className="container-2">
           <h1>Lead Status Overview</h1>
-          <div className="display-flex lead-status">
-            <div className="lead-status">
-              <h4>New</h4>
-            </div>
-            <div>
-              <h4>New</h4>
-            </div>
-            <div>
-              <h4>New</h4>
-            </div>
-            <div>
-              <h4>New</h4>
-            </div>
-            <div>
-              <h4>New</h4>
-            </div>
+          <div className="display-flex leads">
+            {leads?.map((lead, index) => {
+              const count = data?.filter((l) => l.status === lead).length || 0;
+              return (
+                <div className="lead-status" key={index}>
+                  <h4>{lead}</h4>
+                  <p>{count}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
+        {/* Container 3 */}
       </div>
     </div>
   );
