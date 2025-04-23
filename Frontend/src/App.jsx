@@ -12,6 +12,8 @@ const App = () => {
   );
 
   const leads = [...new Set(data?.map((lead) => lead.status))];
+  const highPriorityLeads = data?.filter((lead) => lead.priority === "High");
+  console.log(highPriorityLeads);
 
   return (
     <div className="display-flex">
@@ -82,6 +84,17 @@ const App = () => {
               <h3>View Deals</h3>
               <p>Search for new deals</p>
             </div>
+          </div>
+        </div>
+        {/* Container 4 */}
+        <div className="container-4">
+          <h1>Quick Filters</h1>
+          <div className="priority display-flex">
+            <div className="priority-buttons">
+              <button>High</button>
+              <button>Medium</button> <button>Low</button>
+            </div>
+            <h3>High Priority Leads</h3>
           </div>
         </div>
       </div>

@@ -285,3 +285,34 @@ body {
 /* ========================= */
 /******** CONTAINER 4 ********/
 /* ========================= */
+.container-4 {
+  margin-inline: 5rem;
+  margin-bottom: 3rem;
+  background-color: #fff;
+  padding-block: 1.5rem;
+  padding-inline: 2rem;
+}
+.container-4 h1 {
+  margin-bottom: 1rem;
+}
+.priority {
+  justify-content: space-between;
+}
+.priority h3 {
+  letter-spacing: 1px;
+  font-size: 1.4rem;
+}
+.priority-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.priority-buttons button {
+  background-color: rgb(245, 242, 242);
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding-inline: 1rem;
+  padding-block: 0.46rem;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
