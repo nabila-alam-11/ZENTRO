@@ -1,0 +1,33 @@
+.main {
+  background-color: whitesmoke;
+}
+.lead-heading {
+  background-color: #fff;
+  color: white;
+  margin-bottom: 2rem;
+  padding-block: 1rem;
+  padding-inline: 5rem;
+}
+.leads-container {
+  /* margin-inline: 2rem; */
+  background-color: #fff;
+}
+
+.leads-list {
+  display: flex;
+  gap: 5rem;
+  margin-bottom: 1rem;
+  margin-inline: 1rem;
+}
+.leads-list p {
+  text-align: left;
+  width: 10rem;
+}
+.lead-name {
+  width: 20rem !important;
+}
+.lead-time {
+}
+.leads-list a {
+  text-align: center;
+}

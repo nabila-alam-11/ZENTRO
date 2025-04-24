@@ -90,7 +90,6 @@ a {
   list-style: none;
   font-size: 1rem;
   padding-block: 0.56rem;
-  margin-block: 1rem;
 }
 .active {
   background-color: var(--clr-primary-2);

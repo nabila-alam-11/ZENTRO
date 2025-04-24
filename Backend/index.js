@@ -132,7 +132,7 @@ app.post("/leads", async (req, res) => {
 // Get all Leads
 async function getAllLeads() {
   try {
-    const leads = await Lead.find();
+    const leads = await Lead.find().populate("salesAgent");
     return leads;
   } catch (error) {
     throw error;
@@ -375,7 +375,6 @@ app.get("/report/last-week", async (req, res) => {
 
     res.status(200).json(closedLeads);
   } catch (err) {
-    
     console.error("Error fetching last-week closed leads:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
