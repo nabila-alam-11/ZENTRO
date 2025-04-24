@@ -1,33 +1,82 @@
-.main {
-  background-color: whitesmoke;
-}
-.lead-heading {
-  background-color: #fff;
-  color: white;
-  margin-bottom: 2rem;
-  padding-block: 1rem;
-  padding-inline: 5rem;
-}
-.leads-container {
-  /* margin-inline: 2rem; */
-  background-color: #fff;
+.filters {
+  display: flex;
+  margin-inline: 4.2rem;
+  margin-top: 2rem;
+  justify-content: space-between;
 }
 
-.leads-list {
+.searchLead {
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid rgb(235, 233, 233);
+  padding-block: 0.334rem;
+  padding-inline: 0.334rem;
+  border-radius: 4px;
+}
+.searchLead::placeholder {
+  color: rgb(167, 166, 166);
+}
+.status-priority {
   display: flex;
-  gap: 5rem;
-  margin-bottom: 1rem;
-  margin-inline: 1rem;
+  gap: 1rem;
 }
-.leads-list p {
-  text-align: left;
-  width: 10rem;
+#filterByStatus,
+#sortByPriority {
+  font-size: 0.96rem;
+  outline: none;
+  border: 1px solid rgb(235, 233, 233);
+  padding-block: 0.334rem;
+  padding-inline: 0.434rem;
+  border-radius: 4px;
 }
-.lead-name {
-  width: 20rem !important;
+
+.leads-headings {
+  display: flex;
+  margin-inline: 4.2rem;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  padding-block: 1rem;
+  padding-inline: 2.3rem;
+  justify-content: space-between;
+  background-color: #07348a;
+  color: white;
+  margin-top: 2rem;
+  letter-spacing: 1px;
+  justify-items: center;
+  align-items: center;
 }
-.lead-time {
+
+.leads-container {
+  margin-inline: 4.2rem;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 2rem;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
+.leads-list {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+
+  padding-inline: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding-block: 1rem;
+}
+.leads-list div {
+  width: 15rem;
+}
+
 .leads-list a {
-  text-align: center;
+  color: white;
+  background-color: green;
+  padding: 0.54rem 0.84rem;
+  border-radius: 3px;
+  letter-spacing: 1px;
 }

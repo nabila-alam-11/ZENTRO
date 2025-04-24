@@ -102,6 +102,7 @@ a {
   height: 1px;
   width: 100%;
   background-color: lightgray;
+  margin-bottom: 1.2rem;
 }
 .main {
   margin-left: 15%;
@@ -123,7 +124,7 @@ a {
 }
 .container {
   margin-inline: 5rem;
-  margin-top: 4.6rem;
+  margin-top: 2rem;
   margin-bottom: 3.5rem;
   border-radius: 20px;
 }

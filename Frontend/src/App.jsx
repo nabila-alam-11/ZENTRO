@@ -23,7 +23,6 @@ const App = () => {
 
   const handlePriority = (priority) => {
     setSelectedPriority(priority);
-    console.log(priority);
   };
 
   return (
@@ -42,7 +41,7 @@ const App = () => {
 
           {/* Shimmer UI while loading */}
           {loading ? (
-            <SimpleShimmerDashboard />
+            <p>Loading...</p>
           ) : (
             <>
               {/* Container 1 */}

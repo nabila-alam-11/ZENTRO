@@ -11,7 +11,6 @@ const Sidebar = () => {
     <div className="sidebar">
       <h3>ANVAYA</h3>
       <div className="line"></div>
-      <h4>CLIENTS</h4>
       <ul>
         <li>
           <NavLink
