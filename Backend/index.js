@@ -18,6 +18,7 @@ app.use(express.json()); // MIDDLEWARE - It automatically parses incoming reques
 const SalesAgent = require("./models/salesAgent.model");
 const Lead = require("./models/lead.model");
 const Comment = require("./models/comment.model");
+const { error } = require("console");
 
 // ===============================
 // ************ HOME ************
@@ -311,6 +312,7 @@ app.post("/leads/:id/comments", async (req, res) => {
     }
 
     const author = await SalesAgent.findById(authorId);
+    console.log(author);
     if (!author) {
       return res.status(404).json({ error: "Sales Agent not found." });
     }
