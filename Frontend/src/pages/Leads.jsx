@@ -1,7 +1,7 @@
 import Sidebar from "../components/Sidebar";
 import MenuIcon from "../assets/menu.png";
 import useFetch from "../useFetch";
-import "../lead.styles.css";
+import "../css/lead.styles.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -41,7 +41,10 @@ const Leads = () => {
           </button>
           <h3 className="lead-heading">Lead List</h3>
         </div>
-        <h3 className="lead-overview">Lead Overview ({data.length})</h3>
+        <div className="display-flex add-lead">
+          <h3 className="lead-overview">Lead Overview ({data.length})</h3>
+          <button>+ Add Lead</button>
+        </div>
 
         <div className="filters">
           <input

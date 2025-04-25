@@ -1,0 +1,103 @@
+.lead-details-container {
+  margin-left: 15%;
+  background-color: whitesmoke;
+  width: 100%;
+}
+.lead-heading {
+  padding-left: 4.2rem;
+  padding-block: 1.04rem;
+  background-color: var(--clr-white);
+  font-family: "Open Sans", sans-serif;
+}
+.lead-details {
+  margin-inline: 4.2rem;
+  margin-block: 2rem;
+  justify-content: space-between;
+}
+.lead-details button {
+  font-size: 1rem;
+  background-color: rgb(9, 128, 175);
+  color: white;
+  outline: none;
+  border: none;
+  padding-inline: 1rem;
+  padding-block: 0.56rem;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
+}
+.lead-details-box {
+  margin-block: 2rem;
+  margin-inline: 4.2rem;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  border-radius: 5px;
+}
+.data {
+  display: flex;
+  width: 100%;
+}
+.data-heading {
+  width: 30% !important;
+}
+.data p {
+  width: 70%;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+/* COMMENTS */
+.comments {
+  margin-inline: 4.2rem;
+  margin-block: 1.5rem;
+}
+.comments h3 {
+  margin-bottom: 0.67rem;
+  letter-spacing: 1px;
+}
+.comment-textarea {
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 0.65rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  font-family: sans-serif;
+  letter-spacing: 1.3px;
+  outline: none;
+  resize: none;
+}
+.comment-textarea::placeholder {
+  color: rgb(188, 185, 185);
+}
+.comments button {
+  margin-top: 1rem;
+  font-size: 1rem;
+  background-color: rgb(9, 128, 175);
+  color: white;
+  outline: none;
+  border: none;
+  padding-inline: 1rem;
+  padding-block: 0.56rem;
+  border-radius: 5px;
+  letter-spacing: 1.6px;
+}
+.comments-box {
+  margin-block: 2rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.comment-text {
+  padding-inline: 1rem;
+  padding-block: 1rem;
+}
+.comment-d p {
+  padding-right: 1rem;
+}
+.formatted {
+  color: gray;
+}
+.comment-t {
+  margin-top: 0.78rem;
+  font-size: 0.96rem;
+}

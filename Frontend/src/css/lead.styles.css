@@ -1,12 +1,25 @@
-.lead-overview {
-  margin-inline: 4.2rem;
-  margin-top: 2rem;
-}
 .lead-heading {
   padding-left: 4.2rem;
   padding-block: 1.04rem;
   background-color: var(--clr-white);
   font-family: "Open Sans", sans-serif;
+}
+.add-lead {
+  margin-top: 2rem;
+  margin-inline: 4.2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-lead button {
+  font-size: 1rem;
+  background-color: rgb(9, 128, 175);
+  color: white;
+  outline: none;
+  border: none;
+  padding-inline: 1rem;
+  padding-block: 0.56rem;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
 }
 
 .filters {

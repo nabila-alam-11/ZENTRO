@@ -1,4 +1,3 @@
-import "../dashboardShimmerStyles.css";
 const SimpleShimmerDashboard = () => {
   return (
     <div className="shimmer-wrapper">
