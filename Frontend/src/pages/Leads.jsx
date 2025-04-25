@@ -39,8 +39,10 @@ const Leads = () => {
           <button className="menu-icon">
             <img src={MenuIcon} />
           </button>
-          <h3 className="heading">Lead Overview ({data.length})</h3>
+          <h3 className="lead-heading">Lead List</h3>
         </div>
+        <h3 className="lead-overview">Lead Overview ({data.length})</h3>
+
         <div className="filters">
           <input
             placeholder="Search by lead..."
@@ -74,12 +76,11 @@ const Leads = () => {
           </div>
         </div>
         {/* Container 1 */}
-        <div className="lead-heading"></div>
         <div className="leads-headings">
           <div>Lead Name</div>
           <div>Status</div>
           <div>Priority</div>
-          <div>Time To Close</div>
+          <div className="time">Time To Close</div>
           <div>Sales Agent</div>
           <div>Actions</div>
         </div>

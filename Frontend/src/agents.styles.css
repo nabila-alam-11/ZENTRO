@@ -1,0 +1,50 @@
+.sales-agent-list {
+  margin-inline: 4.2rem;
+  margin-block: 2rem;
+}
+.agent-list-headings {
+  margin-inline: 4.2rem;
+  justify-content: space-between;
+  background-color: #07348a;
+  color: white;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.agent-list-container {
+  background-color: white;
+  margin-inline: 4.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid lightgray;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.agent-list {
+  justify-content: space-between;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  padding: 0.75rem;
+  align-items: center;
+}
+.agent-list :nth-child(1) {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.agent-list div {
+  width: 20rem;
+  letter-spacing: 1px;
+}
+.agent-list button {
+  background-color: green;
+  color: white;
+  outline: none;
+  border: none;
+  padding-inline: 0.66rem;
+  padding-block: 0.55rem;
+  letter-spacing: 1.5px;
+  font-size: 0.89rem;
+  border-radius: 4px;
+  text-align: center;
+}

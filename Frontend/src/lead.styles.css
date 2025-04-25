@@ -1,3 +1,14 @@
+.lead-overview {
+  margin-inline: 4.2rem;
+  margin-top: 2rem;
+}
+.lead-heading {
+  padding-left: 4.2rem;
+  padding-block: 1.04rem;
+  background-color: var(--clr-white);
+  font-family: "Open Sans", sans-serif;
+}
+
 .filters {
   display: flex;
   margin-inline: 4.2rem;
@@ -79,4 +90,12 @@
   padding: 0.54rem 0.84rem;
   border-radius: 3px;
   letter-spacing: 1px;
+}
+
+@media (max-width: 998px) {
+  .leads-container,
+  .leads-headings,
+  .filters {
+    margin-inline: 1.5rem;
+  }
 }

@@ -113,7 +113,7 @@ a {
   padding-block: 1.04rem;
   background-color: var(--clr-white);
   font-family: "Open Sans", sans-serif;
-  padding-left: 5rem !important;
+  padding-left: 5rem;
 }
 
 .container h3 {
