@@ -21,6 +21,11 @@
   width: 100%;
   height: 100dvh;
 }
+@media (max-width: 992px) {
+  .agents-container {
+    margin-left: 0;
+  }
+}
 .agent-list-headings {
   margin-inline: 4.2rem;
   justify-content: space-between;

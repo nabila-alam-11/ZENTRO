@@ -41,7 +41,7 @@ const App = () => {
 
           {/* Shimmer UI while loading */}
           {loading ? (
-            <p>Loading...</p>
+            <SimpleShimmerDashboard />
           ) : (
             <>
               {/* Container 1 */}

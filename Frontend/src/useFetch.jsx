@@ -10,8 +10,10 @@ const useFetch = (url, initialData = null) => {
 
     const fetchData = async () => {
       setLoading(true);
+      console.log(loading);
       try {
         const response = await axios.get(url, { signal: controller.signal });
+        console.log("Data received: ", response.data);
         setData(response.data);
         setError(null);
       } catch (error) {
@@ -22,6 +24,7 @@ const useFetch = (url, initialData = null) => {
         }
       } finally {
         setLoading(false);
+        console.log("Loading state set to false");
       }
     };
     fetchData();

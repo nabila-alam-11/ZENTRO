@@ -87,10 +87,13 @@
   border: 1px solid lightgray;
   border-radius: 5px;
 }
-.comment-text {
-  padding-inline: 1rem;
+
+.box {
+  border-bottom: 1px solid lightgray;
   padding-block: 1rem;
+  padding-inline: 1rem;
 }
+
 .comment-d p {
   padding-right: 1rem;
 }

@@ -1,0 +1,51 @@
+.r-heading {
+  margin-block: 2rem;
+  margin-inline: 4.5rem;
+  text-align: center;
+}
+.pie-chart-container {
+  background-color: white;
+  width: 50%;
+  border-radius: 5px;
+  padding-inline: 2rem;
+  padding-block: 2rem;
+  margin: 0 auto;
+}
+.pie-chart-heading {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* lead-status-distribution-chart */
+.lead-status-distribution-chart {
+  background-color: white;
+  width: 50%;
+  border-radius: 5px;
+  padding-inline: 2rem;
+  padding-block: 2rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+/* Leads closed by Sales Agent */
+.leads-closed-chart {
+  background-color: white;
+  width: 50%;
+  border-radius: 5px;
+  padding-inline: 2rem;
+  padding-block: 2rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 992px) {
+  .leads-closed-chart,
+  .lead-status-distribution-chart,
+  .pie-chart-container {
+    width: 70%;
+  }
+}

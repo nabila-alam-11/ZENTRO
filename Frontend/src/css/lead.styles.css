@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.add-lead button {
+.add-lead a {
   font-size: 1rem;
   background-color: rgb(9, 128, 175);
   color: white;

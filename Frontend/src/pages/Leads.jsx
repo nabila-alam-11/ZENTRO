@@ -43,7 +43,7 @@ const Leads = () => {
         </div>
         <div className="display-flex add-lead">
           <h3 className="lead-overview">Lead Overview ({data.length})</h3>
-          <button>+ Add Lead</button>
+          <Link to="/addLead">+ Add Lead</Link>
         </div>
 
         <div className="filters">

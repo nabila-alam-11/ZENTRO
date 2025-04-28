@@ -93,7 +93,7 @@ const LeadDetails = () => {
                   hour12: true,
                 });
                 return (
-                  <div key={comment._id}>
+                  <div key={comment._id} className="box">
                     <div className="display-flex comment-d">
                       <p>
                         <strong>{comment.author?.name} </strong>
