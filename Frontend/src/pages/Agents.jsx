@@ -2,6 +2,7 @@ import Sidebar from "../components/Sidebar";
 import MenuIcon from "../assets/menu.png";
 import "../css/agents.styles.css";
 import useFetch from "../useFetch";
+import { Link } from "react-router-dom";
 
 const Agents = () => {
   const { data, loading } = useFetch(
@@ -21,7 +22,9 @@ const Agents = () => {
         <div className="line"></div>
         <div className="display-flex add-agent">
           <h3 className="sales-agent-list">Sales Agent List</h3>
-          <button>+ Add Sales Agent</button>
+          <Link to="/addAgent" className="add-agent-link">
+            + Add Sales Agent
+          </Link>
         </div>
         <div className="display-flex agent-list-headings">
           <h3>Name</h3>

@@ -6,6 +6,7 @@ import Deals from "../src/assets/trust-alt.png";
 import useFetch from "./useFetch";
 import { useState } from "react";
 import SimpleShimmerDashboard from "./components/SimpleShimmerDashboard";
+import { Link } from "react-router-dom";
 
 const App = () => {
   const { data, loading, error } = useFetch(
@@ -85,14 +86,18 @@ const App = () => {
                 <div className="display-flex actions">
                   <div className="action">
                     <div className="icon-wrapper">
-                      <img src={Lead} />
+                      <Link to="/addLead">
+                        <img src={Lead} />
+                      </Link>
                     </div>
                     <h3>New Lead</h3>
                     <p>Add new prospect</p>
                   </div>
                   <div className="action">
                     <div className="icon-wrapper">
-                      <img src={Report} />
+                      <Link to="/report">
+                        <img src={Report} />
+                      </Link>
                     </div>
                     <h3>See Reports</h3>
                     <p>View earnings</p>

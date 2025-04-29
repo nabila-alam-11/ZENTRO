@@ -69,6 +69,12 @@ const LeadDetails = () => {
             </p>
             <p>{leadData[0]?.timeToClose}</p>
           </div>
+          <div className="data">
+            <p className="data-heading">
+              <strong>Tags: </strong>
+            </p>
+            <p>{leadData[0]?.tags.join(", ")}</p>
+          </div>
         </div>
         {/* COMMENTS */}
         <div className="comments">

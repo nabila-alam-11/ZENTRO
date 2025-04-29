@@ -1,0 +1,75 @@
+.leadForm {
+  height: 100dvh !important;
+}
+#add-lead {
+  margin-inline: 4.2rem;
+  margin-block: 5rem !important;
+  margin: 0 auto;
+
+  background-color: #fff;
+  padding-inline: 1.5rem;
+  padding-block: 1.5rem;
+  border-radius: 5px;
+  width: 40%;
+}
+#add-lead h2 {
+  text-align: center;
+  margin-bottom: 0.56rem;
+  font-size: 2.1rem;
+  font-size: 2.1rem;
+  color: #06275c;
+  letter-spacing: 1.2px;
+}
+.linee {
+  width: 15.5rem;
+  height: 5px;
+  background-color: #0562f6;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+}
+label {
+  margin-bottom: 0.66rem;
+  display: block;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+#add-lead input,
+#add-lead select {
+  margin-bottom: 1.5rem;
+  display: block;
+  width: 100%;
+  font-size: 1.2rem;
+  padding-block: 0.34rem;
+  padding-inline: 0.34rem;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid lightgray;
+}
+#tags {
+  color: gray;
+}
+
+.add-lead-button {
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #07348a;
+  font-size: 1.2rem;
+  padding-inline: 0.78rem;
+  padding-block: 0.66rem;
+  border-radius: 5px;
+  width: 100%;
+  letter-spacing: 1.2px;
+  margin-top: 1rem;
+}
+@media (max-width: 992px) {
+  #add-lead {
+    margin-inline: 2rem;
+    margin: 0 auto;
+    width: 70%;
+    padding-block: 3rem;
+    padding-inline: 3rem;
+  }
+}

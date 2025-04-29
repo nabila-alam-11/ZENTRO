@@ -9,6 +9,9 @@ import Agents from "./pages/Agents.jsx";
 import Report from "./pages/Report.jsx";
 import LeadDetails from "./pages/LeadDetails.jsx";
 import AddLeadForm from "./components/AddLeadForm.jsx";
+import { LeadProvider } from "./contexts/LeadContext.jsx";
+import SalesAgentForm from "./components/SalesAgentForm.jsx";
+import { AgentProvider } from "./contexts/AgentContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +42,18 @@ const router = createBrowserRouter([
     path: "/addLead",
     element: <AddLeadForm />,
   },
+  {
+    path: "/addAgent",
+    element: <SalesAgentForm />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AgentProvider>
+      <LeadProvider>
+        <RouterProvider router={router} />
+      </LeadProvider>
+    </AgentProvider>
   </StrictMode>
 );
