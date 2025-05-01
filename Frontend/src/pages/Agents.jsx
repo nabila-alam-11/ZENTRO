@@ -40,7 +40,7 @@ const Agents = () => {
               <div>
                 <p>{agent.email}</p>
               </div>
-              <button>Details</button>
+              <Link to={`/leads/${agent.name}`}>Details</Link>
             </div>
           ))}
         </div>

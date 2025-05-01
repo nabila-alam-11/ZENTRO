@@ -104,3 +104,11 @@
   margin-top: 0.78rem;
   font-size: 0.96rem;
 }
+@media (max-width: 972px) {
+  .lead-details-page h3 {
+    padding-inline: 1rem !important;
+  }
+  .lead-details {
+    margin-inline: 3.8rem;
+  }
+}

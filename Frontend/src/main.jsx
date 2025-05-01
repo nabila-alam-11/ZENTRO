@@ -12,6 +12,9 @@ import AddLeadForm from "./components/AddLeadForm.jsx";
 import { LeadProvider } from "./contexts/LeadContext.jsx";
 import SalesAgentForm from "./components/SalesAgentForm.jsx";
 import { AgentProvider } from "./contexts/AgentContext.jsx";
+import { CommentProvider } from "./contexts/CommentContext.jsx";
+import LeadStatusOverview from "./pages/LeadStatusOverview.jsx";
+import LeadsBySalesAgent from "./pages/LeadsBySalesAgent.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,14 +49,24 @@ const router = createBrowserRouter([
     path: "/addAgent",
     element: <SalesAgentForm />,
   },
+  {
+    path: "/status/:leadStatus",
+    element: <LeadStatusOverview />,
+  },
+  {
+    path: "/leads/:agent",
+    element: <LeadsBySalesAgent />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AgentProvider>
-      <LeadProvider>
-        <RouterProvider router={router} />
-      </LeadProvider>
-    </AgentProvider>
+    <CommentProvider>
+      <AgentProvider>
+        <LeadProvider>
+          <RouterProvider router={router} />
+        </LeadProvider>
+      </AgentProvider>
+    </CommentProvider>
   </StrictMode>
 );

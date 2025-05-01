@@ -17,6 +17,7 @@ const App = () => {
   const leads = [...new Set(data?.map((lead) => lead.status))];
 
   const [selectedPriority, setSelectedPriority] = useState("High");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const filteredPriority = data?.filter(
     (lead) => lead.priority === selectedPriority
@@ -71,10 +72,16 @@ const App = () => {
                   {leads.map((lead, index) => {
                     const count = data.filter((l) => l.status === lead).length;
                     return (
-                      <div className="lead-status" key={index}>
-                        <h4>{lead}</h4>
-                        <p>{count}</p>
-                      </div>
+                      <Link
+                        to={`/status/${lead}`}
+                        className="lead-status"
+                        key={index}
+                      >
+                        <div className="" key={index}>
+                          <h4>{lead}</h4>
+                          <p>{count}</p>
+                        </div>
+                      </Link>
                     );
                   })}
                 </div>

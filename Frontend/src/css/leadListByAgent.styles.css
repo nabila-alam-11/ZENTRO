@@ -1,0 +1,92 @@
+.lead-list-by-agent-container {
+  margin-inline: 4.2rem;
+  margin-block: 2rem;
+}
+.agent-leads {
+  height: 100dvh;
+}
+.lead-list-by-agent-container h2 {
+  text-align: center;
+}
+.filterAndSorted {
+  margin-inline: 17rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.filterAndSorted select {
+  padding-inline: 0.23rem;
+  padding-block: 0.34rem;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  color: rgb(101, 100, 100);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-right: 1rem;
+}
+.agent-name {
+  margin-block: 1.5rem;
+  margin-left: 17rem;
+}
+.lead-list-by-agent-container h3 span {
+  color: #07348a;
+}
+.lead-list-by-agent {
+  background-color: white;
+  margin: 0 auto;
+  width: 60%;
+  border: 1px solid lightgray;
+  border-bottom: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.list-by-agent-heading {
+  background-color: #07348a;
+  width: 60%;
+  margin: 0 auto;
+  color: white;
+  justify-content: space-between;
+  padding-inline: 1.3rem;
+  padding-block: 1rem;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.list-by-agent {
+  justify-content: space-between;
+  padding-block: 1rem;
+  border-bottom: 1px solid lightgray;
+  padding-inline: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .lead-heading {
+    padding-inline: 1rem;
+  }
+  .filterAndSorted {
+    margin-inline: 0rem;
+    width: 100%;
+  }
+  .agent-name {
+    text-align: left;
+    margin-inline: 0rem;
+  }
+  .list-by-agent-heading,
+  .lead-list-by-agent {
+    margin-inline: 0rem;
+    width: 100%;
+  }
+}
+@media (max-width: 728px) {
+  .lead-heading {
+    padding-inline: 1rem;
+  }
+  .lead-list-by-agent-container {
+    margin-inline: 2rem;
+  }
+  .filterAndSorted,
+  .lead-list-by-agent,
+  .list-by-agent-heading {
+    width: 100%;
+    margin-inline: 0rem !important;
+  }
+}

@@ -1,0 +1,63 @@
+.sales-container {
+  margin-inline: 4.2rem;
+  margin-block: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.search-by-lead {
+  font-size: 1.1rem;
+  outline: none;
+  border: 1px solid rgb(235, 233, 233);
+  padding-block: 0.334rem;
+  padding-inline: 0.334rem;
+  border-radius: 4px;
+  margin-inline: 4.2rem;
+}
+.lead-data {
+  width: 32%;
+  background-color: white;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  border-radius: 5px;
+  letter-spacing: 1.2px;
+}
+.lead-data h3 {
+  color: #06275c;
+  padding-bottom: 0.76rem;
+  font-size: 1.5rem;
+}
+.head {
+  color: black;
+}
+.budget {
+  color: green;
+}
+.lead-data p {
+  padding-bottom: 0.54rem;
+}
+
+@media (max-width: 1235px) {
+  .sales h3 {
+    padding-inline: 1rem !important;
+  }
+  .sales-container,
+  .search-by-lead {
+    margin-inline: 3.8rem;
+  }
+  .lead-data {
+    width: 48%;
+  }
+  .lead-data h3 {
+    padding-inline: 0rem !important;
+  }
+}
+@media (max-width: 728px) {
+  .lead-data {
+    width: 100%;
+  }
+  .lead-data h3 {
+    padding-inline: 0rem !important;
+    font-size: 1rem;
+  }
+}

@@ -20,7 +20,7 @@ const LeadDetails = () => {
   return (
     <div className="display-flex">
       <Sidebar />
-      <div className="main">
+      <div className="main lead-details-page">
         <div className="display-flex navigation">
           <button className="menu-icon">
             <img src={MenuIcon} />

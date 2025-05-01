@@ -6,7 +6,6 @@ export default useAgentContext;
 
 export function AgentProvider({ children }) {
   const [agentsData, setAgentsData] = useState([]);
-  const [error, setError] = useState(null);
 
   const addAgent = async (newAgent) => {
     try {
