@@ -112,7 +112,7 @@ const Leads = () => {
                     <div>
                       <p>{lead.salesAgent?.name}</p>
                     </div>
-                    <Link to={`/lead/${lead._id}`}>Details</Link>
+                    <Link to={`/lead/leadDetails/${lead._id}`}>Details</Link>
                   </div>
                 ))
               ) : (

@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import MenuIcon from "../assets/menu.png";
 import "../css/leadDetail.styles.css";
 import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
 
 const LeadDetails = () => {
   const { data: leads, loading } = useFetch(
@@ -12,6 +13,7 @@ const LeadDetails = () => {
   );
 
   const { leadId } = useParams();
+  const { id } = useParams();
   const leadData = leads?.filter((lead) => lead._id === leadId);
 
   const { data: comments } = useFetch(
@@ -33,7 +35,7 @@ const LeadDetails = () => {
           <>
             <div className="lead-details display-flex">
               <h3>Lead Details</h3>
-              <button>Edit Lead Details</button>
+              <Link to={`/lead/${leadData[0]?._id}`}>Edit Lead Details</Link>
             </div>
             <div className="lead-details-box">
               <div className="data">

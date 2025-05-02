@@ -16,6 +16,7 @@ import { AgentProvider } from "./contexts/AgentContext.jsx";
 import { CommentProvider } from "./contexts/CommentContext.jsx";
 import LeadStatusOverview from "./pages/LeadStatusOverview.jsx";
 import LeadsBySalesAgent from "./pages/LeadsBySalesAgent.jsx";
+import EditLeadForm from "./components/EditLeadForm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
     element: <Settings />,
   },
   {
-    path: "/lead/:leadId",
+    path: "lead/leadDetails/:leadId",
     element: <LeadDetails />,
   },
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
   {
     path: "/leads/:agent",
     element: <LeadsBySalesAgent />,
+  },
+  {
+    path: "/lead/:id",
+    element: <EditLeadForm />,
   },
 ]);
 

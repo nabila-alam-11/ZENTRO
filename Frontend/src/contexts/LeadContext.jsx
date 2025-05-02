@@ -33,8 +33,34 @@ export function LeadProvider({ children }) {
     }
   };
 
+  const editLead = async (id, updatedData) => {
+    try {
+      const response = await fetch(
+        `https://anvaya-backend-theta.vercel.app/leads/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedData),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to update lead.");
+      }
+      const updatedLead = await response.json();
+      return updatedLead;
+    } catch (err) {
+      console.log("Error editing lead: ", err);
+      setError(err.message);
+      throw error;
+    }
+  };
+
   return (
-    <LeadContext.Provider value={{ addLead, error }}>
+    <LeadContext.Provider value={{ addLead, error, editLead }}>
       {children}
     </LeadContext.Provider>
   );
