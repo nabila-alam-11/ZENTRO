@@ -7,6 +7,7 @@ import useFetch from "./useFetch";
 import { useState } from "react";
 import SimpleShimmerDashboard from "./components/SimpleShimmerDashboard";
 import { Link } from "react-router-dom";
+import Loader from "./components/Loader";
 
 const App = () => {
   const { data, loading, error } = useFetch(
@@ -41,10 +42,7 @@ const App = () => {
           </div>
           <div className="line"></div>
 
-          {/* Shimmer UI while loading */}
-          {loading ? (
-            <SimpleShimmerDashboard />
-          ) : (
+          {!loading ? (
             <>
               {/* Container 1 */}
               <div className="display-flex container">
@@ -195,6 +193,8 @@ const App = () => {
                 </div>
               </div>
             </>
+          ) : (
+            <Loader />
           )}
         </div>
       </div>

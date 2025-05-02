@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "../useFetch";
 
 const CommentContext = createContext();
 const useCommentContext = () => useContext(CommentContext);

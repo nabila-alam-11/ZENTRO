@@ -7,6 +7,7 @@ import Leads from "./pages/Leads.jsx";
 import Sales from "./pages/Sales.jsx";
 import Agents from "./pages/Agents.jsx";
 import Report from "./pages/Report.jsx";
+import Settings from "./pages/Settings.jsx";
 import LeadDetails from "./pages/LeadDetails.jsx";
 import AddLeadForm from "./components/AddLeadForm.jsx";
 import { LeadProvider } from "./contexts/LeadContext.jsx";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/report",
     element: <Report />,
+  },
+  {
+    path: "/settings",
+    element: <Settings />,
   },
   {
     path: "/lead/:leadId",

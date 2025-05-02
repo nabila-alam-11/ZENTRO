@@ -4,10 +4,11 @@ import Sidebar from "../components/Sidebar";
 import MenuIcon from "../assets/menu.png";
 import "../css/leadListByStatus.styles.css";
 import { useState } from "react";
+import Loader from "../components/Loader";
 
 const LeadStatusOverview = () => {
   const { leadStatus } = useParams();
-  const { data } = useFetch(
+  const { data, loading } = useFetch(
     "https://anvaya-backend-theta.vercel.app/leads",
     []
   );
@@ -46,46 +47,52 @@ const LeadStatusOverview = () => {
         <div className="line"></div>
         <div className="lead-list-by-status">
           <h2>Lead List by Status</h2>
-          <h3>
-            Status: <span className="ss">{leadStatus}</span>
-          </h3>
-          <div className="filterAndSorted">
+          {!loading ? (
             <div>
-              <select onChange={(e) => setFilterByAgent(e.target.value)}>
-                <option value="">Filter by Sales Agent</option>
-                {agents?.map((agent, index) => (
-                  <option value={agent} key={index}>
-                    {agent}
-                  </option>
-                ))}
-              </select>
-              <select onChange={(e) => setFilterByPriority(e.target.value)}>
-                <option value="">Filter by Priority</option>
-                {priority?.map((p, index) => (
-                  <option value={p} key={index}>
-                    {p}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <select onChange={(e) => setSortTimeToClose(e.target.value)}>
-              <option value="">Sort by Time to Close</option>
-              <option value="asc">Ascending</option>
-              <option value="desc">Descending</option>
-            </select>
-          </div>
-          <div className="display-flex lead-by-status-heading">
-            <h3>Lead Name</h3>
-            <h3>Sales Agent</h3>
-          </div>
-          <div className="lead-by-status-container">
-            {filterAndSortedArray?.map((lead) => (
-              <div key={lead._id} className="lead-by-status">
-                <p>{lead.name}</p>
-                <p>{lead.salesAgent?.name}</p>
+              <h3>
+                Status: <span className="ss">{leadStatus}</span>
+              </h3>
+              <div className="filterAndSorted">
+                <div>
+                  <select onChange={(e) => setFilterByAgent(e.target.value)}>
+                    <option value="">Filter by Sales Agent</option>
+                    {agents?.map((agent, index) => (
+                      <option value={agent} key={index}>
+                        {agent}
+                      </option>
+                    ))}
+                  </select>
+                  <select onChange={(e) => setFilterByPriority(e.target.value)}>
+                    <option value="">Filter by Priority</option>
+                    {priority?.map((p, index) => (
+                      <option value={p} key={index}>
+                        {p}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <select onChange={(e) => setSortTimeToClose(e.target.value)}>
+                  <option value="">Sort by Time to Close</option>
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                </select>
               </div>
-            ))}
-          </div>
+              <div className="display-flex lead-by-status-heading">
+                <h3>Lead Name</h3>
+                <h3>Sales Agent</h3>
+              </div>
+              <div className="lead-by-status-container">
+                {filterAndSortedArray?.map((lead) => (
+                  <div key={lead._id} className="lead-by-status">
+                    <p>{lead.name}</p>
+                    <p>{lead.salesAgent?.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <Loader />
+          )}
         </div>
       </div>
     </div>

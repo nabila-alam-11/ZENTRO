@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import useFetch from "../useFetch";
 import "../css/report.css";
 import SimpleShimmerDashboard from "../components/SimpleShimmerDashboard";
+import Loader from "../components/Loader";
 
 ChartJS.register(
   ArcElement,
@@ -122,9 +123,7 @@ const Report = () => {
           </button>
           <h3 className="lead-heading">CRM Reports</h3>
         </div>
-        {loading ? (
-          <SimpleShimmerDashboard />
-        ) : (
+        {!loading ? (
           <div>
             <h2 className="r-heading">Report Overview</h2>
             <div className="pie-chart-container">
@@ -142,6 +141,8 @@ const Report = () => {
               <Pie data={statusDistributionData} />
             </div>
           </div>
+        ) : (
+          <Loader />
         )}
       </div>
     </div>

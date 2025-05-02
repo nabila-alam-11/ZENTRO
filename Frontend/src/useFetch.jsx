@@ -11,6 +11,7 @@ const useFetch = (url, initialData = null) => {
     const fetchData = async () => {
       setLoading(true);
       try {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         const response = await axios.get(url, { signal: controller.signal });
         setData(response.data);
         setError(null);
