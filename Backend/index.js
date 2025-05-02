@@ -168,7 +168,7 @@ async function updateLead(leadId, dataToUpdtaed) {
 app.post("/leads/:leadId", async (req, res) => {
   try {
     const updatedLead = await updateLead(req.params.leadId, req.body);
-    if (updateLead) {
+    if (updatedLead) {
       res
         .status(200)
         .json({ message: "Lead updated successfully.", updatedLead });

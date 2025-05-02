@@ -53,7 +53,7 @@ const Report = () => {
     datasets: [
       {
         data: Object.values(statusCount),
-        backgroundColor: ["#36A2EB", "#FF6384"],
+        backgroundColor: ["#16a7e0", "#ba0f9e"],
         borderWidth: 1,
       },
     ],

@@ -5,7 +5,6 @@ const useLeadContext = () => useContext(LeadContext);
 export default useLeadContext;
 
 export function LeadProvider({ children }) {
-  const [leadsData, setLeadsData] = useState([]);
   const [error, setError] = useState(null);
 
   const addLead = async (newLead) => {
@@ -27,7 +26,7 @@ export function LeadProvider({ children }) {
       }
 
       const addedLead = await response.json();
-      setLeadsData((prevLeads) => [...prevLeads, addedLead]);
+      return addedLead;
     } catch (err) {
       console.error("Error adding lead:", err);
       setError(err.message);
@@ -35,7 +34,7 @@ export function LeadProvider({ children }) {
   };
 
   return (
-    <LeadContext.Provider value={{ leadsData, addLead, error }}>
+    <LeadContext.Provider value={{ addLead, error }}>
       {children}
     </LeadContext.Provider>
   );
