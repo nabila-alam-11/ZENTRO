@@ -38,7 +38,7 @@ export function LeadProvider({ children }) {
       const response = await fetch(
         `https://anvaya-backend-theta.vercel.app/leads/${id}`,
         {
-          method: "PUT",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
