@@ -165,7 +165,7 @@ async function updateLead(leadId, dataToUpdtaed) {
   }
 }
 
-app.put("/leads/:leadId", async (req, res) => {
+app.post("/leads/:leadId", async (req, res) => {
   try {
     const updatedLead = await updateLead(req.params.leadId, req.body);
     if (updatedLead) {
