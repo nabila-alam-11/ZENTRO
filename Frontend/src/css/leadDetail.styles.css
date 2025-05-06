@@ -14,7 +14,7 @@
   margin-block: 2rem;
   justify-content: space-between;
 }
-.lead-details button {
+.lead-details a {
   font-size: 1rem;
   background-color: rgb(9, 128, 175);
   color: white;

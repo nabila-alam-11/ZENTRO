@@ -13,7 +13,6 @@ import {
 import { useEffect } from "react";
 import useFetch from "../useFetch";
 import "../css/report.css";
-import SimpleShimmerDashboard from "../components/SimpleShimmerDashboard";
 import Loader from "../components/Loader";
 
 ChartJS.register(

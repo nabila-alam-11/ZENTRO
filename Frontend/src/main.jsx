@@ -17,6 +17,7 @@ import { CommentProvider } from "./contexts/CommentContext.jsx";
 import LeadStatusOverview from "./pages/LeadStatusOverview.jsx";
 import LeadsBySalesAgent from "./pages/LeadsBySalesAgent.jsx";
 import EditLeadForm from "./components/EditLeadForm.jsx";
+import Deals from "./pages/Deals.jsx";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
   {
     path: "/lead/:id",
     element: <EditLeadForm />,
+  },
+  {
+    path: "/deals",
+    element: <Deals />,
   },
 ]);
 

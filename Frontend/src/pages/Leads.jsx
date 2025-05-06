@@ -5,9 +5,10 @@ import "../css/lead.styles.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Loader from "../components/Loader";
+import NoResult from "../assets/no-result.png";
 
 const Leads = () => {
-  const { data, loading, error } = useFetch(
+  const { data, loading } = useFetch(
     "https://anvaya-backend-theta.vercel.app/leads",
     []
   );
@@ -47,7 +48,9 @@ const Leads = () => {
         ) : (
           <>
             <div className="display-flex add-lead">
-              <h3 className="lead-overview">Lead Overview ({data.length})</h3>
+              <h3 className="lead-overview">
+                Lead Overview ({filteredLeads.length})
+              </h3>
               <Link to="/addLead">+ Add Lead</Link>
             </div>
 
@@ -83,16 +86,16 @@ const Leads = () => {
                 </select>
               </div>
             </div>
-
-            <div className="leads-headings">
-              <div>Lead Name</div>
-              <div>Status</div>
-              <div>Priority</div>
-              <div className="time">Time To Close</div>
-              <div>Sales Agent</div>
-              <div>Actions</div>
-            </div>
-
+            {filteredLeads.length > 0 && (
+              <div className="leads-headings">
+                <div>Lead Name</div>
+                <div>Status</div>
+                <div>Priority</div>
+                <div className="time">Time To Close</div>
+                <div>Sales Agent</div>
+                <div>Actions</div>
+              </div>
+            )}
             <div className="leads-container">
               {filteredLeads.length > 0 ? (
                 filteredLeads.map((lead) => (
@@ -116,7 +119,11 @@ const Leads = () => {
                   </div>
                 ))
               ) : (
-                <p className="no-leads">No leads found.</p>
+                <div className="no-leads">
+                  <img src={NoResult} />
+                  <h3>No Leads Found</h3>
+                  <p>We did not find any leads for your search.</p>
+                </div>
               )}
             </div>
           </>

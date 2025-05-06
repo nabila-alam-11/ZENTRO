@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const SalesAgentForm = () => {
   const { addAgent } = useAgentContext();
+  const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,10 +24,16 @@ const SalesAgentForm = () => {
     };
     try {
       await addAgent(newAgent);
-      alert("Agent Added Successfully.");
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 1000);
+      setFormData({
+        name: "",
+        email: "",
+      });
     } catch (error) {
       console.log("Failed to add agent");
-      alert("error adding agent");
     }
   };
   return (
@@ -40,6 +47,11 @@ const SalesAgentForm = () => {
           <h3 className="heading">New Sales Agent</h3>
         </div>
         <div className="line"></div>
+        {success && (
+          <p className="success">
+            {formData.name ? formData.name : "Sales Agent"} added successfully
+          </p>
+        )}
         <form className="add-new-agent-form" onSubmit={handleSubmit}>
           <h2>Add New Sales Agent</h2>
           <div className="linee"></div>

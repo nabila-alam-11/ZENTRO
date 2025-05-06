@@ -5,7 +5,6 @@ import Report from "../src/assets/checklist-task-budget.png";
 import Deals from "../src/assets/trust-alt.png";
 import useFetch from "./useFetch";
 import { useState } from "react";
-import SimpleShimmerDashboard from "./components/SimpleShimmerDashboard";
 import { Link } from "react-router-dom";
 import Loader from "./components/Loader";
 
@@ -109,7 +108,9 @@ const App = () => {
                   </div>
                   <div className="action">
                     <div className="icon-wrapper">
-                      <img src={Deals} />
+                      <Link to="/deals">
+                        <img src={Deals} />
+                      </Link>
                     </div>
                     <h3>View Deals</h3>
                     <p>Search for new deals</p>

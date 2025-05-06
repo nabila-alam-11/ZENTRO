@@ -5,6 +5,7 @@ import MenuIcon from "../assets/menu.png";
 import "../css/leadListByAgent.styles.css";
 import { useState } from "react";
 import Loader from "../components/Loader";
+import NoResult from "../assets/no-result.png";
 
 const LeadsBySalesAgent = () => {
   const { agent } = useParams();
@@ -74,18 +75,28 @@ const LeadsBySalesAgent = () => {
             <h3 className="agent-name">
               Sales Agent: <span>{agent}</span>
             </h3>
-            <div className="display-flex list-by-agent-heading">
-              <h3>Lead Name</h3>
-              <h3>Status</h3>
-            </div>
-            <div className="lead-list-by-agent">
-              {filteredAndSortedLeads?.map((lead) => (
-                <div className="display-flex list-by-agent" key={lead._id}>
-                  <div>{lead.name}</div>
-                  <div className="lead--status">{lead.status}</div>
+            {filteredAndSortedLeads?.length != 0 ? (
+              <div>
+                <div className="display-flex list-by-agent-heading">
+                  <h3>Lead Name</h3>
+                  <h3>Status</h3>
                 </div>
-              ))}
-            </div>
+                <div className="lead-list-by-agent">
+                  {filteredAndSortedLeads?.map((lead) => (
+                    <div className="display-flex list-by-agent" key={lead._id}>
+                      <div>{lead.name}</div>
+                      <div className="lead--status">{lead.status}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="no-leads">
+                <img src={NoResult} />
+                <h3>No Leads Found</h3>
+                <p>We did not find any leads for your search.</p>
+              </div>
+            )}
           </div>
         ) : (
           <Loader />

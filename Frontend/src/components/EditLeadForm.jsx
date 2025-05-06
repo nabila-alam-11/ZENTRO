@@ -24,7 +24,7 @@ const EditLeadForm = () => {
   const [name, setName] = useState(lead?.name || "");
   const [source, setSource] = useState(lead?.source || "");
   const [tag, setTag] = useState(lead?.tags?.[0] || "");
-  const [salesAgent, setSalesAgent] = useState(lead?.salesAgent || "");
+  const [salesAgent, setSalesAgent] = useState(lead?.salesAgent?.name || "");
   const [status, setStatus] = useState(lead?.status || "");
   const [timeToClose, setTimeToClose] = useState(lead?.timeToClose || 0);
   const [priority, setPriority] = useState(lead?.priority || "Medium");
@@ -34,7 +34,7 @@ const EditLeadForm = () => {
       setName(lead.name);
       setSource(lead.source);
       setTag(lead.tags?.[0]);
-      setSalesAgent(lead.salesAgent);
+      setSalesAgent(lead.salesAgent?.name);
       setStatus(lead.status);
       setTimeToClose(lead.timeToClose);
       setPriority(lead.priority);
@@ -45,15 +45,19 @@ const EditLeadForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await editLead(id, {
-      name,
-      source,
-      tags: [tag],
-      salesAgent,
-      status,
-      timeToClose,
-      priority,
-    });
+    try {
+      await editLead(id, {
+        name,
+        source,
+        tags: [tag],
+        salesAgent,
+        status,
+        timeToClose,
+        priority,
+      });
+    } catch (error) {
+      console.log("Edit lead failed:", error.message);
+    }
   };
 
   return (
@@ -153,7 +157,7 @@ const EditLeadForm = () => {
           </select>
 
           <button type="submit" className="add-lead-button">
-            Add Lead
+            Save
           </button>
         </form>{" "}
       </div>

@@ -4,6 +4,7 @@ import "../css/agents.styles.css";
 import useFetch from "../useFetch";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
+import NoResult from "../assets/no-result.png";
 
 const Agents = () => {
   const { data, loading } = useFetch(
@@ -29,24 +30,34 @@ const Agents = () => {
                 + Add Sales Agent
               </Link>
             </div>
-            <div className="display-flex agent-list-headings">
-              <h3>Name</h3>
-              <h3 className="email">Email</h3>
-              <h3>Actions</h3>
-            </div>
-            <div className="agent-list-container">
-              {data?.map((agent) => (
-                <div key={agent._id} className="display-flex agent-list">
-                  <div>
-                    <p>{agent.name}</p>
-                  </div>
-                  <div>
-                    <p>{agent.email}</p>
-                  </div>
-                  <Link to={`/leads/${agent.name}`}>Details</Link>
+            {data?.length != 0 ? (
+              <div>
+                <div className="display-flex agent-list-headings">
+                  <h3>Name</h3>
+                  <h3 className="email">Email</h3>
+                  <h3>Actions</h3>
                 </div>
-              ))}
-            </div>
+                <div className="agent-list-container">
+                  {data?.map((agent) => (
+                    <div key={agent._id} className="display-flex agent-list">
+                      <div>
+                        <p>{agent.name}</p>
+                      </div>
+                      <div>
+                        <p>{agent.email}</p>
+                      </div>
+                      <Link to={`/leads/${agent.name}`}>Details</Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="no-leads">
+                <img src={NoResult} />
+                <h3>No Leads Found</h3>
+                <p>We did not find any leads for your search.</p>
+              </div>
+            )}
           </>
         ) : (
           <Loader />

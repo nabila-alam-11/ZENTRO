@@ -45,17 +45,21 @@ export function LeadProvider({ children }) {
           body: JSON.stringify(updatedData),
         }
       );
-
+      console.log(updatedData);
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to update lead.");
+        console.log("API error details: ", errorData);
+        throw new Error(
+          errorData.message ||
+            `Failed to update lead..... Status: ${response.status}`
+        );
       }
       const updatedLead = await response.json();
       return updatedLead;
     } catch (err) {
       console.log("Error editing lead: ", err);
       setError(err.message);
-      throw error;
+      throw err;
     }
   };
 

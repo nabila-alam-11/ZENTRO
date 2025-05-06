@@ -5,6 +5,7 @@ import MenuIcon from "../assets/menu.png";
 import "../css/leadListByStatus.styles.css";
 import { useState } from "react";
 import Loader from "../components/Loader";
+import NoResult from "../assets/no-result.png";
 
 const LeadStatusOverview = () => {
   const { leadStatus } = useParams();
@@ -77,18 +78,28 @@ const LeadStatusOverview = () => {
                   <option value="desc">Descending</option>
                 </select>
               </div>
-              <div className="display-flex lead-by-status-heading">
-                <h3>Lead Name</h3>
-                <h3>Sales Agent</h3>
-              </div>
-              <div className="lead-by-status-container">
-                {filterAndSortedArray?.map((lead) => (
-                  <div key={lead._id} className="lead-by-status">
-                    <p>{lead.name}</p>
-                    <p>{lead.salesAgent?.name}</p>
+              {filterAndSortedArray.length != 0 ? (
+                <div>
+                  <div className="display-flex lead-by-status-heading">
+                    <h3>Lead Name</h3>
+                    <h3>Sales Agent</h3>
                   </div>
-                ))}
-              </div>
+                  <div className="lead-by-status-container">
+                    {filterAndSortedArray?.map((lead) => (
+                      <div key={lead._id} className="lead-by-status">
+                        <p>{lead.name}</p>
+                        <p>{lead.salesAgent?.name}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="no-leads no-result">
+                  <img src={NoResult} />
+                  <h3>No Leads Found</h3>
+                  <p>We did not find any leads for your search.</p>
+                </div>
+              )}
             </div>
           ) : (
             <Loader />

@@ -1,0 +1,52 @@
+.deal-heading {
+  color: black;
+}
+.deals-container {
+  margin-inline: 3rem;
+  margin-block: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+.dd {
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+}
+.deals {
+  width: 13.5rem;
+  height: 13rem;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+.deals h3 {
+  margin-top: 0.54rem;
+}
+.deals p {
+  margin-block: 0.43rem;
+}
+.deals-heading {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  margin-left: 0.23rem;
+  color: #06275c;
+  width: 13.3rem;
+}
+.tags-box {
+  flex-wrap: wrap;
+  gap: 0.23rem;
+}
+.tag {
+  background-color: #d3e3fd;
+  color: #06275c;
+  margin-block: 0.23rem !important;
+  padding-inline: 0.34rem;
+  padding-block: 0.22rem;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 0.23rem;
+}

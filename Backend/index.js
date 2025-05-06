@@ -167,6 +167,55 @@ async function updateLead(leadId, dataToUpdtaed) {
 
 app.put("/leads/:leadId", async (req, res) => {
   try {
+    const { name, source, salesAgent, status, timeToClose, priority, tags } =
+      req.body;
+
+    if (!name || typeof name !== "string") {
+      return res
+        .status(400)
+        .json({ error: "Invalid input: 'name' must be a string." });
+    }
+
+    const allowedSources = [
+      "Website",
+      "Referral",
+      "Cold Call",
+      "Advertisement",
+      "Email",
+      "Other",
+    ];
+    if (!source || !allowedSources.includes(source)) {
+      return res.status(400).json({ error: "Invalid source." });
+    }
+
+    if (!salesAgent || !mongoose.Types.ObjectId.isValid(salesAgent)) {
+      return res.status(400).json({ error: "Invalid sales agent ID." });
+    }
+
+    const allowedStatuses = [
+      "New",
+      "Contacted",
+      "Qualified",
+      "Proposal Sent",
+      "Closed",
+    ];
+    if (!status || !allowedStatuses.includes(status)) {
+      return res.status(400).json({ error: "Invalid status." });
+    }
+
+    if (!timeToClose || timeToClose < 1) {
+      return res.status(400).json({ error: "Invalid timeToClose." });
+    }
+
+    const allowedPriorities = ["High", "Medium", "Low"];
+    if (!priority || !allowedPriorities.includes(priority)) {
+      return res.status(400).json({ error: "Invalid priority." });
+    }
+
+    if (tags && !Array.isArray(tags)) {
+      return res.status(400).json({ error: "'tags' must be an array." });
+    }
+
     const updatedLead = await updateLead(req.params.leadId, req.body);
     if (updatedLead) {
       res
@@ -175,10 +224,10 @@ app.put("/leads/:leadId", async (req, res) => {
     } else {
       res
         .status(404)
-        .json({ error: `Lead with ID ${req.params.leadId}  not found` });
+        .json({ error: `Lead with ID ${req.params.leadId} not found` });
     }
   } catch (error) {
-    console.log(error.message);
+    console.log("PUT /leads/:leadId error:", error.message);
     res.status(500).json({ error: "Failed to update lead." });
   }
 });

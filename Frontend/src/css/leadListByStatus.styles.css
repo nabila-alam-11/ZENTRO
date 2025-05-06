@@ -52,3 +52,6 @@
   padding-inline: 1rem;
   padding-block: 0.76rem;
 }
+.no-result h3 {
+  margin-left: 0 !important;
+}

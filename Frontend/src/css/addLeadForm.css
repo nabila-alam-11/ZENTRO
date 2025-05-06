@@ -3,7 +3,7 @@
 }
 #add-lead {
   margin-inline: 4.2rem;
-  margin-block: 5rem !important;
+  margin-block: 3rem !important;
   margin: 0 auto;
 
   background-color: #fff;
@@ -72,4 +72,18 @@ label {
     padding-block: 3rem;
     padding-inline: 3rem;
   }
+}
+.success {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  background-color: rgb(184, 223, 251);
+  color: #06275c;
+  width: 37rem;
+  border-radius: 5px;
+  margin-bottom: 0 !important;
+  font-family: sans-serif;
+  letter-spacing: 1.5px;
 }

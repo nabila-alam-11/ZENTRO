@@ -13,6 +13,7 @@ const AddLeadForm = () => {
     "https://anvaya-backend-theta.vercel.app/leads"
   );
   const { addLead } = useLeadContext();
+  const [success, setSuccess] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -47,8 +48,10 @@ const AddLeadForm = () => {
 
     try {
       await addLead(newLead);
-      alert("Lead added successfully!");
-
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 1000);
       // Reset form
       setFormData({
         name: "",
@@ -83,6 +86,7 @@ const AddLeadForm = () => {
           </button>
           <h3 className="lead-heading">Add Lead</h3>
         </div>
+        {success && <p className="success">Lead added successfully</p>}
         <form id="add-lead" onSubmit={handleSubmit}>
           <h2>Add New Lead</h2>
           <div className="linee"></div>
