@@ -188,10 +188,6 @@ app.put("/leads/:leadId", async (req, res) => {
       return res.status(400).json({ error: "Invalid source." });
     }
 
-    if (!salesAgent || !mongoose.Types.ObjectId.isValid(salesAgent)) {
-      return res.status(400).json({ error: "Invalid sales agent ID." });
-    }
-
     const allowedStatuses = [
       "New",
       "Contacted",
