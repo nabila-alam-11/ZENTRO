@@ -47,8 +47,10 @@ label {
   outline: none;
   border: 2px solid lightgray;
 }
+
 #tags {
   color: gray;
+  margin-bottom: 1.5rem;
 }
 
 .add-lead-button {

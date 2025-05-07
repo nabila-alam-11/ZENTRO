@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 const LeadContext = createContext();
+
 const useLeadContext = () => useContext(LeadContext);
 export default useLeadContext;
 
@@ -45,10 +46,9 @@ export function LeadProvider({ children }) {
           body: JSON.stringify(updatedData),
         }
       );
-      console.log(updatedData);
+
       if (!response.ok) {
         const errorData = await response.json();
-        console.log("API error details: ", errorData);
         throw new Error(
           errorData.message || `Failed Status: ${response.status}`
         );

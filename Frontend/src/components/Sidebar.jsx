@@ -1,10 +1,10 @@
+import { NavLink } from "react-router-dom";
 import Lead from "../assets/lead (1).png";
 import Agent from "../assets/user-headset.png";
 import Dashboard from "../assets/dashboard.png";
 import Report from "../assets/newspaper.png";
 import Settings from "../assets/settings.png";
 import Sales from "../assets/chart-line-up.png";
-import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (

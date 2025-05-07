@@ -1,15 +1,15 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Sidebar from "../src/components/Sidebar";
 import MenuIcon from "../src/assets/menu.png";
 import Lead from "../src/assets/lead.png";
 import Report from "../src/assets/checklist-task-budget.png";
 import Deals from "../src/assets/trust-alt.png";
 import useFetch from "./useFetch";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import Loader from "./components/Loader";
 
 const App = () => {
-  const { data, loading, error } = useFetch(
+  const { data, loading } = useFetch(
     "https://anvaya-backend-theta.vercel.app/leads",
     []
   );
@@ -17,7 +17,6 @@ const App = () => {
   const leads = [...new Set(data?.map((lead) => lead.status))];
 
   const [selectedPriority, setSelectedPriority] = useState("High");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const filteredPriority = data?.filter(
     (lead) => lead.priority === selectedPriority
@@ -31,7 +30,6 @@ const App = () => {
     <>
       <div className="display-flex">
         <Sidebar />
-
         <div className="main">
           <div className="display-flex navigation">
             <button className="menu-icon">

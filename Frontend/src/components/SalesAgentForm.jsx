@@ -1,20 +1,24 @@
-import Sidebar from "./Sidebar";
+import { useState } from "react";
 import MenuIcon from "../assets/menu.png";
 import "../css/addAgentForm.css";
+import Sidebar from "./Sidebar";
 import useAgentContext from "../contexts/AgentContext";
-import { useState } from "react";
 
 const SalesAgentForm = () => {
-  const { addAgent } = useAgentContext();
   const [success, setSuccess] = useState(false);
+
+  const { addAgent } = useAgentContext();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -24,10 +28,12 @@ const SalesAgentForm = () => {
     };
     try {
       await addAgent(newAgent);
+
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
       }, 1000);
+
       setFormData({
         name: "",
         email: "",

@@ -1,8 +1,8 @@
-import Sidebar from "../components/Sidebar";
-import useFetch from "../useFetch";
 import MenuIcon from "../assets/menu.png";
-import Loader from "../components/Loader";
 import "../css/deals.css";
+import useFetch from "../useFetch";
+import Sidebar from "../components/Sidebar";
+import Loader from "../components/Loader";
 
 const Deals = () => {
   const { data, loading } = useFetch(

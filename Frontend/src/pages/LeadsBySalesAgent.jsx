@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import MenuIcon from "../assets/menu.png";
+import NoResult from "../assets/no-result.png";
+import "../css/leadListByAgent.styles.css";
 import useFetch from "../useFetch";
 import Sidebar from "../components/Sidebar";
-import MenuIcon from "../assets/menu.png";
-import "../css/leadListByAgent.styles.css";
-import { useState } from "react";
 import Loader from "../components/Loader";
-import NoResult from "../assets/no-result.png";
 
 const LeadsBySalesAgent = () => {
   const { agent } = useParams();
+
   const { data, loading } = useFetch(
     "https://anvaya-backend-theta.vercel.app/leads"
   );
@@ -16,6 +17,7 @@ const LeadsBySalesAgent = () => {
   const [filterLeadByStatus, setFilterLeadByStatus] = useState("");
   const [filterByPriority, setFilterByPriority] = useState("");
   const [sortOrder, setSortOrder] = useState("");
+
   const status = [...new Set(data?.map((lead) => lead.status))];
   const priority = [...new Set(data?.map((lead) => lead.priority))];
 

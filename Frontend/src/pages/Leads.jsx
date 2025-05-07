@@ -1,11 +1,11 @@
-import Sidebar from "../components/Sidebar";
-import MenuIcon from "../assets/menu.png";
-import useFetch from "../useFetch";
-import "../css/lead.styles.css";
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
+import MenuIcon from "../assets/menu.png";
 import NoResult from "../assets/no-result.png";
+import "../css/lead.styles.css";
+import useFetch from "../useFetch";
+import Sidebar from "../components/Sidebar";
+import Loader from "../components/Loader";
 
 const Leads = () => {
   const { data, loading } = useFetch(

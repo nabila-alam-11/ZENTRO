@@ -1,12 +1,11 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 
 const AgentContext = createContext();
+
 const useAgentContext = () => useContext(AgentContext);
 export default useAgentContext;
 
 export function AgentProvider({ children }) {
-  const [agentsData, setAgentsData] = useState([]);
-
   const addAgent = async (newAgent) => {
     try {
       const response = await fetch(
@@ -24,11 +23,9 @@ export function AgentProvider({ children }) {
         throw new Error(errorData.message || "Failed to add agent.");
       }
       const addedAgent = await response.json();
-      setAgentsData((prevAgents) => [...prevAgents, addedAgent]);
+      return addedAgent;
     } catch (error) {
-      console.error("Error adding lead:", err);
-
-      console.log(error);
+      console.log("Error adding agent:", error);
     }
   };
   return (

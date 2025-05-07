@@ -1,10 +1,9 @@
-import { useParams } from "react-router-dom";
-import useFetch from "../useFetch";
-import Sidebar from "../components/Sidebar";
+import { useParams, Link } from "react-router-dom";
 import MenuIcon from "../assets/menu.png";
 import "../css/leadDetail.styles.css";
+import useFetch from "../useFetch";
+import Sidebar from "../components/Sidebar";
 import Loader from "../components/Loader";
-import { Link } from "react-router-dom";
 
 const LeadDetails = () => {
   const { data: leads, loading } = useFetch(
@@ -13,7 +12,7 @@ const LeadDetails = () => {
   );
 
   const { leadId } = useParams();
-  const { id } = useParams();
+
   const leadData = leads?.filter((lead) => lead._id === leadId);
 
   const { data: comments } = useFetch(

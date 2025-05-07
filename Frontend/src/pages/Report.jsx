@@ -1,5 +1,7 @@
-import Sidebar from "../components/Sidebar";
+import { useEffect } from "react";
 import MenuIcon from "../assets/menu.png";
+import "../css/report.css";
+import useFetch from "../useFetch";
 import { Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -10,9 +12,7 @@ import {
   LinearScale,
   BarElement,
 } from "chart.js";
-import { useEffect } from "react";
-import useFetch from "../useFetch";
-import "../css/report.css";
+import Sidebar from "../components/Sidebar";
 import Loader from "../components/Loader";
 
 ChartJS.register(

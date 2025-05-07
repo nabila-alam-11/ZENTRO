@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import MenuIcon from "../assets/menu.png";
+import NoResult from "../assets/no-result.png";
+import "../css/leadListByStatus.styles.css";
 import useFetch from "../useFetch";
 import Sidebar from "../components/Sidebar";
-import MenuIcon from "../assets/menu.png";
-import "../css/leadListByStatus.styles.css";
-import { useState } from "react";
 import Loader from "../components/Loader";
-import NoResult from "../assets/no-result.png";
 
 const LeadStatusOverview = () => {
   const { leadStatus } = useParams();
+
   const { data, loading } = useFetch(
     "https://anvaya-backend-theta.vercel.app/leads",
     []

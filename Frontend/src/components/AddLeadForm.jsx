@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import MenuIcon from "../assets/menu.png";
 import useLeadContext from "../contexts/LeadContext";
 import { useState } from "react";
+import Select from "react-select";
 
 const AddLeadForm = () => {
   const { data: agents } = useFetch(
@@ -20,11 +21,11 @@ const AddLeadForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     source: "Website",
-    tags: "",
+    tags: [],
     salesAgent: "",
     status: "New",
     priority: "Medium",
-    timeToClose: 0,
+    timeToClose: 1,
   });
 
   const handleChange = (e) => {
@@ -41,28 +42,32 @@ const AddLeadForm = () => {
     const newLead = {
       name: formData.name,
       source: formData.source,
-      tags: [formData.tags],
+      tags: Array.isArray(formData.tags)
+        ? formData.tags.map((tag) => tag.value)
+        : [],
       salesAgent: formData.salesAgent,
       status: formData.status,
       priority: formData.priority,
-      timeToClose: 30,
+      timeToClose: formData.timeToClose,
     };
 
     try {
       await addLead(newLead);
+
       setSuccess(true);
+
       setTimeout(() => {
         setSuccess(false);
       }, 1000);
-      // Reset form
+
       setFormData({
         name: "",
         source: "Website",
-        tags: "",
+        tags: [],
         salesAgent: "",
         status: "New",
         priority: "Medium",
-        timeToClose: "",
+        timeToClose: 1,
       });
     } catch (error) {
       console.error("Failed to add lead", error);
@@ -75,6 +80,11 @@ const AddLeadForm = () => {
     .reduce((acc, tags) => acc.concat(tags), []);
 
   const uniqueTags = Array.from(new Set(allTags));
+
+  const tagOptions = uniqueTags?.map((tag) => ({
+    value: tag,
+    label: tag,
+  }));
 
   return (
     <div className="display-flex">
@@ -118,19 +128,19 @@ const AddLeadForm = () => {
           </select>
 
           <label htmlFor="tags">Tags: </label>
-          <select
+          <Select
+            isMulti
             id="tags"
             name="tags"
+            options={tagOptions}
             value={formData.tags}
-            onChange={handleChange}
-          >
-            <option value="">Select..</option>
-            {uniqueTags?.map((tag, index) => (
-              <option key={index} value={tag}>
-                {tag}
-              </option>
-            ))}
-          </select>
+            onChange={(selectedOptions) => {
+              setFormData((prevData) => ({
+                ...prevData,
+                tags: selectedOptions || [],
+              }));
+            }}
+          ></Select>
 
           <label htmlFor="salesAgent">Sales Agent: </label>
           <select

@@ -1,10 +1,10 @@
-import Sidebar from "../components/Sidebar";
+import { Link } from "react-router-dom";
 import MenuIcon from "../assets/menu.png";
+import NoResult from "../assets/no-result.png";
 import "../css/agents.styles.css";
 import useFetch from "../useFetch";
-import { Link } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
 import Loader from "../components/Loader";
-import NoResult from "../assets/no-result.png";
 
 const Agents = () => {
   const { data, loading } = useFetch(

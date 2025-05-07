@@ -1,8 +1,8 @@
-import Sidebar from "../components/Sidebar";
+import { useState } from "react";
 import MenuIcon from "../assets/menu.png";
 import "../css/sales.css";
 import useFetch from "../useFetch";
-import { useState } from "react";
+import Sidebar from "../components/Sidebar";
 import Loader from "../components/Loader.jsx";
 
 const Sales = () => {
