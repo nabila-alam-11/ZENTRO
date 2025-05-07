@@ -50,8 +50,7 @@ export function LeadProvider({ children }) {
         const errorData = await response.json();
         console.log("API error details: ", errorData);
         throw new Error(
-          errorData.message ||
-            `Failed to update lead..... Status: ${response.status}`
+          errorData.message || `Failed Status: ${response.status}`
         );
       }
       const updatedLead = await response.json();

@@ -10,31 +10,25 @@ const EditLeadForm = () => {
   const { data: leads } = useFetch(
     "https://anvaya-backend-theta.vercel.app/leads"
   );
+  const { data: agents } = useFetch(
+    "https://anvaya-backend-theta.vercel.app/agents"
+  );
 
   const lead = leads?.find((lead) => lead._id === id);
 
-  const allTags = leads
-    ?.map((lead) => lead.tags)
-    .reduce((acc, tags) => acc.concat(tags), []);
-
-  const uniqueTags = Array.from(new Set(allTags));
-
-  const allAgents = [...new Set(leads?.map((lead) => lead.salesAgent?.name))];
-
   const [name, setName] = useState(lead?.name || "");
   const [source, setSource] = useState(lead?.source || "");
-  const [tag, setTag] = useState(lead?.tags?.[0] || "");
-  const [salesAgent, setSalesAgent] = useState(lead?.salesAgent?.name || "");
+  const [salesAgent, setSalesAgent] = useState(lead?.salesAgent?._id || "");
   const [status, setStatus] = useState(lead?.status || "");
   const [timeToClose, setTimeToClose] = useState(lead?.timeToClose || 0);
   const [priority, setPriority] = useState(lead?.priority || "Medium");
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     if (lead) {
       setName(lead.name);
       setSource(lead.source);
-      setTag(lead.tags?.[0]);
-      setSalesAgent(lead.salesAgent?.name);
+      setSalesAgent(lead.salesAgent?._id);
       setStatus(lead.status);
       setTimeToClose(lead.timeToClose);
       setPriority(lead.priority);
@@ -49,12 +43,15 @@ const EditLeadForm = () => {
       await editLead(id, {
         name,
         source,
-        tags: [tag],
         salesAgent,
         status,
         timeToClose,
         priority,
       });
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 1000);
     } catch (error) {
       console.log("Edit lead failed:", error.message);
     }
@@ -70,6 +67,7 @@ const EditLeadForm = () => {
           </button>
           <h3 className="lead-heading">Edit Lead</h3>
         </div>
+        {success && <p className="success">Lead updated successfully</p>}
         <form id="add-lead" onSubmit={handleSubmit}>
           <h2>Edit Lead</h2>
           <div className="linee"></div>
@@ -98,20 +96,6 @@ const EditLeadForm = () => {
             <option value="Advertisement">Advertisement</option>
           </select>
 
-          <label htmlFor="tags">Tags: </label>
-          <select
-            id="tags"
-            value={tag}
-            onChange={(e) => setTag(e.target.value)}
-          >
-            <option value="">Select..</option>
-            {uniqueTags?.map((tag, index) => (
-              <option key={index} value={tag}>
-                {tag}
-              </option>
-            ))}
-          </select>
-
           <label htmlFor="salesAgent">Sales Agent: </label>
           <select
             id="salesAgent"
@@ -119,9 +103,9 @@ const EditLeadForm = () => {
             onChange={(e) => setSalesAgent(e.target.value)}
           >
             <option value="">--Sales Agent--</option>
-            {allAgents?.map((agent, index) => (
-              <option key={index} value={agent}>
-                {agent}
+            {agents?.map((agent) => (
+              <option key={agent._id} value={agent._id}>
+                {agent.name}
               </option>
             ))}
           </select>

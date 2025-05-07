@@ -12,7 +12,9 @@ const AddLeadForm = () => {
   const { data: leads } = useFetch(
     "https://anvaya-backend-theta.vercel.app/leads"
   );
+
   const { addLead } = useLeadContext();
+
   const [success, setSuccess] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -22,14 +24,14 @@ const AddLeadForm = () => {
     salesAgent: "",
     status: "New",
     priority: "Medium",
-    timeToClose: 30,
+    timeToClose: 0,
   });
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [id]: value,
+      [name]: value,
     }));
   };
 
@@ -74,8 +76,6 @@ const AddLeadForm = () => {
 
   const uniqueTags = Array.from(new Set(allTags));
 
-  const tagOptions = uniqueTags.map((tag) => ({ value: tag, label: tag }));
-
   return (
     <div className="display-flex">
       <Sidebar />
@@ -97,6 +97,7 @@ const AddLeadForm = () => {
           <input
             type="text"
             id="name"
+            name="name"
             className="input"
             value={formData.name}
             onChange={handleChange}
@@ -104,7 +105,12 @@ const AddLeadForm = () => {
           />
 
           <label htmlFor="source">Lead Source: </label>
-          <select id="source" value={formData.source} onChange={handleChange}>
+          <select
+            id="source"
+            name="source"
+            value={formData.source}
+            onChange={handleChange}
+          >
             <option value="Website">Website</option>
             <option value="Referral">Referral</option>
             <option value="Cold Call">Cold Call</option>
@@ -112,7 +118,12 @@ const AddLeadForm = () => {
           </select>
 
           <label htmlFor="tags">Tags: </label>
-          <select id="tags" value={formData.tags} onChange={handleChange}>
+          <select
+            id="tags"
+            name="tags"
+            value={formData.tags}
+            onChange={handleChange}
+          >
             <option value="">Select..</option>
             {uniqueTags?.map((tag, index) => (
               <option key={index} value={tag}>
@@ -124,6 +135,7 @@ const AddLeadForm = () => {
           <label htmlFor="salesAgent">Sales Agent: </label>
           <select
             id="salesAgent"
+            name="salesAgent"
             value={formData.salesAgent}
             onChange={handleChange}
           >
@@ -136,7 +148,12 @@ const AddLeadForm = () => {
           </select>
 
           <label htmlFor="status">Status: </label>
-          <select id="status" value={formData.status} onChange={handleChange}>
+          <select
+            id="status"
+            name="status"
+            value={formData.status}
+            onChange={handleChange}
+          >
             <option value="New">New</option>
             <option value="Contacted">Contacted</option>
             <option value="Qualified">Qualified</option>
@@ -147,12 +164,14 @@ const AddLeadForm = () => {
           <input
             id="timeToClose"
             type="number"
+            name="timeToClose"
             value={formData.timeToClose}
             onChange={handleChange}
           />
           <label htmlFor="priority">Priority</label>
           <select
             id="priority"
+            name="priority"
             value={formData.priority}
             onChange={handleChange}
           >
