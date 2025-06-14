@@ -8,7 +8,7 @@ import Sales from "../assets/chart-line-up.png";
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <h3>ANVAYA</h3>
+      <h3>ZENTRO</h3>
       <div className="line"></div>
       <ul>
         <li>
